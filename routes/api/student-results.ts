@@ -95,12 +95,12 @@ export const handler: Handlers = {
       const percentage = total_points > 0 ? (earned_points / total_points) * 100 : 0;
       const grade = calculateGrade(percentage);
 
-      const result = db.query(
+      db.query(
         "INSERT INTO student_results (variant_id, student_name, earned_points, total_points, percentage, grade) VALUES (?, ?, ?, ?, ?, ?)",
         [variant_id, student_name, earned_points, total_points, percentage, grade]
       );
 
-      return new Response(JSON.stringify({ id: result.lastInsertRowId }), {
+      return new Response(JSON.stringify({ id: db.lastInsertRowId }), {
         headers: { "Content-Type": "application/json" }
       });
     } catch (error) {
