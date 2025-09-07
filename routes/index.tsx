@@ -3,7 +3,7 @@ import { h } from "preact";
 import { Head } from "$fresh/runtime.ts";
 import { useState, useEffect } from "preact/hooks";
 import QuestionForm from "../islands/QuestionForm.tsx";
-import QuestionsList from "../islands/QuestionsList.tsx";
+import QuestionList from "../islands/QuestionList.tsx";
 import TestConfigForm from "../islands/TestConfigForm.tsx";
 import StudentResultsList from "../islands/StudentResultsList.tsx";
 import type { Question, TestConfig } from "../utils/models.ts";
@@ -207,7 +207,7 @@ export default function Home() {
                     />
                   )}
                   
-                  <QuestionsList
+                  <QuestionList
                     questions={questions}
                     onEdit={handleEditQuestion}
                     onDelete={handleDeleteQuestion}
