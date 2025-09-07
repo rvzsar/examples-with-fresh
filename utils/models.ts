@@ -30,10 +30,12 @@ export interface Question {
   }
   
   export interface StudentResult {
+    id: number;
     variant_id: number;
     student_name: string;
     earned_points: number;
     total_points: number;
     percentage: number;
     grade: string;
+    created_at?: string;
   }
