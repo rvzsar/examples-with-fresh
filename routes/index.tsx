@@ -1,9 +1,11 @@
 // routes/index.tsx
+import { h } from "preact";
 import { Head } from "$fresh/runtime.ts";
 import { useState, useEffect } from "preact/hooks";
 import QuestionForm from "../islands/QuestionForm.tsx";
 import QuestionsList from "../islands/QuestionsList.tsx";
 import TestConfigForm from "../islands/TestConfigForm.tsx";
+import StudentResultsList from "../islands/StudentResultsList.tsx";
 import type { Question, TestConfig } from "../utils/models.ts";
 
 export default function Home() {
@@ -318,18 +320,7 @@ export default function Home() {
               )}
 
               {activeTab === "results" && (
-                <div class="bg-white p-6 rounded-lg shadow">
-                  <h2 class="text-2xl font-bold mb-4">Результаты тестирования</h2>
-                  <p class="text-gray-600 mb-4">
-                    Здесь будет функционал для обработки ответов студентов и формирования ведомостей.
-                  </p>
-                  <div class="text-center py-12 text-gray-400">
-                    <svg class="mx-auto h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    <p class="mt-2">Результаты будут доступны после проведения тестирования</p>
-                  </div>
-                </div>
+                <StudentResultsList />
               )}
             </div>
           </div>
