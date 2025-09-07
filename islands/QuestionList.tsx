@@ -1,4 +1,5 @@
 // islands/QuestionsList.tsx
+import { h } from "preact";
 import { useEffect, useState } from "preact/hooks";
 import type { Question } from "../utils/models.ts";
 

@@ -1,4 +1,5 @@
 // islands/QuestionForm.tsx
+import { h } from "preact";
 import { useState } from "preact/hooks";
 import type { Question } from "../utils/models.ts";
 
@@ -37,9 +38,13 @@ export default function QuestionForm(props: QuestionFormProps) {
     const newOptions = [...question.options];
     newOptions.splice(index, 1);
     
+    // Update correct_answers array:
+    // 1. Remove the answer if it was the deleted option
+    // 2. Decrement indices of answers that come after the deleted option
     const newCorrectAnswers = question.correct_answers
+      .map(ans => ans > index ? ans - 1 : ans)
       .filter(ans => ans !== index)
-      .map(ans => ans > index ? ans - 1 : ans);
+      .sort();
     
     setQuestion({
       ...question,
